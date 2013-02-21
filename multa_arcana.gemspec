@@ -17,6 +17,7 @@ Gem::Specification.new do |gem|
   gem.test_files = Dir["spec/**/*"]
 
   gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'rake'
   
   unless ENV['CI']
     if RUBY_PLATFORM =~ /java/
