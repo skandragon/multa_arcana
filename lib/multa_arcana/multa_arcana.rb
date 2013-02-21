@@ -16,7 +16,7 @@ class MultaArcana
     @@secret_file ||= fname
     unless @@secret_file
       if defined?Rails
-        @secret_file = Rails.root.join('config', fname || DEFAULT_SECRET_FILE)
+        @@secret_file = Rails.root.join('config', fname || DEFAULT_SECRET_FILE)
       else
         @@secret_file = DEFAULT_SECRET_FILE
       end
