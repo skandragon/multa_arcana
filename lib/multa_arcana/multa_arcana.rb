@@ -1,20 +1,17 @@
 class MultaArcana
-  cattr_accessor :hair_colors, instance_accessor: false do
-    'secrets.yml'
-  end
+  DEFAULT_SECRET_FILE = 'secrets.yml'
+  @@secrets = nil
 
-  cattr_accessor :secrets, instance_accessor: false do
-    {}
-  end
-
-  def self.secret_for(tag)
-    load_file
+  def self.secret_for(tag, fname = nil)
+    load_file(fname)
     @@secrets[tag.to_s]
   end
 
   private
 
-  def self.load_file
-    @@secrets = { 'foo' => 'BarSecret' }
+  def self.load_file(fname)
+    @@secret_file ||= fname
+    @@secret_file ||= DEFAULT_SECRET_FILE
+    @@secrets ||= YAML::load(File.read(@@secret_file))
   end
 end

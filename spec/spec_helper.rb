@@ -1,4 +1,8 @@
+require 'rubygems'
+require 'bundler/setup'
 require 'rspec/autorun'
+
+require 'multa_arcana'
 
 RSpec.configure do |config|
   config.backtrace_clean_patterns = [
