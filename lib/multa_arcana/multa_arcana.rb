@@ -3,6 +3,12 @@ class MultaArcana
   @@secrets = nil
   @@secret_file = nil
 
+  #
+  # Load secrets from the default file (+secrets.yml+, or +config/secrets.yml+
+  # for a Rails application) or from the file specified.  The file is sticky;
+  # the first call to +secret_for+ sets the file in use, and afterwards all
+  # following secret_for calls use the data from a cache.
+  #
   def self.secret_for(tag, fname = nil)
     load_file(fname)
     @@secrets[tag.to_s]

@@ -1,2 +1,32 @@
-multa_arcana
-============
+= MultiArcana
+
+Rails applications have many secret strings, and storing them in a public
+revision control system is a security issue.  This gem simplifies secret
+management by storing all secrets in a single file, which is then copied
+into place using Capistrano or other deployment tools.
+
+Usage:
+
+  gem 'multa_arcana'
+
+Create a file +config/secrets.yml+ to contain your secrets:
+
+  db_username: your-username-here
+  db_password: your-db-password-here
+  secret_token: klsjdklajd...2342342ds9u
+
+Then, in any place where you normally use a secret, retrieve it:
+
++config/initializers/secret_token.rb+
+  Thing::Application.config.secret_token = MultaArcana::secret_for(:secret_token)
+
++config/database.yml+
+
+  production:
+    adapter: postgresql
+    encoding: unicode
+    database: thing_production
+    pool: 5
+    host: 127.0.0.1
+    username: <%= MultaArcana::secret_for(:db_username) %>
+    password: <%= MultaArcana::secret_for(:db_password) %>
