@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    multa_arcana (1.0.0)
+    multa_arcana (1.1.0)
 
 GEM
   remote: http://rubygems.org/
