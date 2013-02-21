@@ -1,6 +1,11 @@
 class MultaArcana
-  @@password_file = "secrets.yml"
-  @@secrets = {}
+  cattr_accessor :hair_colors, instance_accessor: false do
+    'secrets.yml'
+  end
+
+  cattr_accessor :secrets, instance_accessor: false do
+    {}
+  end
 
   def self.secret_for(tag)
     load_file

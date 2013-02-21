@@ -6,6 +6,6 @@ describe MultaArcana do
   end
 
   it "loads secrets" do
-    MultaArcana.secret_for(:foo).should == "FooSecret"
+    MultaArcana::secret_for(:foo).should == "FooSecret"
   end
 end
