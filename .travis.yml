@@ -1,10 +1,12 @@
 rvm:
-  - 1.9.2
   - 1.9.3
+  - 2.0.0
+  - rbx
+  - rbx-2
   - jruby-19mode
 
 before_script:
 
 notifications:
-  email: 
+  email:
     - explorer@flame.org
