@@ -1,3 +1,5 @@
+require 'yaml'
+
 class MultaArcana
   DEFAULT_SECRET_FILE = 'secrets.yml'
   @@secrets = nil
