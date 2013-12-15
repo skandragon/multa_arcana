@@ -19,8 +19,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rdoc', ">= 2.4.2"
-  
-  
+
   unless ENV['CI']
     if RUBY_PLATFORM =~ /java/
       gem.add_development_dependency 'ruby-debug'
